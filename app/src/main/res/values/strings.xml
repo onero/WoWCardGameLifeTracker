@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LifeTracker</string>
+    <string name="health">Health</string>
+    <string name="healthString">25</string>
+    <string name="damage">Damage</string>
+    <string name="damageString">0</string>
+</resources>
