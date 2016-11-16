@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton imgOpponentDamageUp;
     private ImageButton imgOpponentDamageDown;
 
+    private TextView mWinnerText;
+    public static final String PLAYER_WINTEXT = "Yay you won!";
+    public static final String OPPONENT_WINTEXT = "LOOSER!!!";
+
     private int mPlayerHealth = 25;
     private int mPlayerDamage = 0;
 
@@ -51,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         imgOpponentDamageUp = (ImageButton) findViewById(R.id.imgBtnOpponentDamageUp);
         imgOpponentDamageDown = (ImageButton) findViewById(R.id.imgBtnOpponentDamageDown);
 
+        mWinnerText = (TextView) findViewById(R.id.txtWinner);
+
         //Set buttons for player
         View.OnClickListener playerHealthUpListener = new View.OnClickListener() {
             @Override
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mPlayerHealth > 0) {
                 mPlayerHealth--;
                 txtPlayerHealth.setText("" + mPlayerHealth);
+                    checkGameOver();
                 }
             }
         };
@@ -77,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mPlayerDamage++;
                 txtPlayerDamage.setText("" + mPlayerDamage);
+                checkGameOver();
             }
         };
         imgPlayerDamageUp.setOnClickListener(playerDamageUpListener);
@@ -108,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mOpponentHealth > 0) {
                     mOpponentHealth--;
                     txtOpponentHealth.setText("" + mOpponentHealth);
+                    checkGameOver();
                 }
             }
         };
@@ -118,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mOpponentDamage++;
                 txtOpponentDamage.setText("" + mOpponentDamage);
+                checkGameOver();
             }
+
         };
         imgOpponentDamageUp.setOnClickListener(OpponentDamageUpListener);
 
@@ -132,6 +143,19 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         imgOpponentDamageDown.setOnClickListener(OpponentDamageDownListener);
+    }
+
+    /**
+     * Checks if the game is won
+     */
+    private void checkGameOver() {
+        if (mPlayerDamage >= mPlayerHealth || mPlayerHealth == 0) {
+            mWinnerText.setText(OPPONENT_WINTEXT);
+            mWinnerText.setVisibility(View.VISIBLE);
+        } else if (mOpponentDamage >= mOpponentHealth || mOpponentHealth == 0) {
+            mWinnerText.setText(PLAYER_WINTEXT);
+            mWinnerText.setVisibility(View.VISIBLE);
+        }
     }
 
 

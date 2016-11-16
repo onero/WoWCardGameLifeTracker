@@ -188,4 +188,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/imgBtnOpponentDamageUp" />
 
+    <TextView
+        android:text="WinnerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtWinner"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
 </RelativeLayout>
