@@ -29,7 +29,8 @@
         android:textColor="#51b46d"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="15dp"
+        android:layout_marginTop="15dp"/>
 
     <TextView
         android:text="@string/healthString"
@@ -44,19 +45,25 @@
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#51b46d"
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/imgBtnPlayerHealthUp"
         android:layout_below="@+id/lblPlayerHealth"
-        android:layout_alignStart="@+id/lblPlayerHealth" />
+        android:layout_alignStart="@+id/lblPlayerHealth"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"/>
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#e15258"
         app:srcCompat="@android:drawable/arrow_down_float"
         android:id="@+id/imgBtnPlayerHealthDown"
         android:layout_below="@+id/imgBtnPlayerHealthUp"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/imgBtnPlayerHealthUp" />
+        android:layout_alignStart="@+id/imgBtnPlayerHealthUp"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:text="@string/damage"
@@ -67,7 +74,8 @@
         android:layout_below="@+id/imgBtnPlayerHealthDown"
         android:layout_alignStart="@+id/imgBtnPlayerHealthDown"
         android:layout_alignEnd="@+id/lblPlayerHealth"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
 
     <TextView
         android:text="@string/damageString"
@@ -83,17 +91,22 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/imgBtnPlayerDamageUp"
+        android:background="#e15258"
+        android:padding="5dp"
         android:layout_below="@+id/lblPlayerDamage"
-        android:layout_alignStart="@+id/imgBtnPlayerHealthDown" />
+        android:layout_alignStart="@+id/imgBtnPlayerHealthDown"/>
 
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#51b46d"
+        android:padding="5dp"
         app:srcCompat="@android:drawable/arrow_down_float"
         android:id="@+id/imgBtnPlayerDamageDown"
         android:layout_below="@+id/imgBtnPlayerDamageUp"
         android:layout_alignEnd="@+id/txtHealth"
-        android:layout_alignStart="@+id/imgBtnPlayerDamageUp" />
+        android:layout_alignStart="@+id/imgBtnPlayerDamageUp"
+        android:layout_marginTop="5dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -134,9 +147,12 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/imgBtnOpponentHealthUp"
+        android:background="#51b46d"
+        android:padding="5dp"
         android:layout_below="@+id/txtOpponentHealth"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/lblPlayerDamage" />
+        android:layout_alignEnd="@+id/lblPlayerDamage"
+        android:layout_marginRight="10dp"/>
 
     <ImageButton
         android:layout_width="match_parent"
@@ -144,6 +160,9 @@
         app:srcCompat="@android:drawable/arrow_down_float"
         android:id="@+id/imgBtnOpponentHealthDown"
         android:layout_below="@+id/imgBtnOpponentHealthUp"
+        android:background="#e15258"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/imgBtnOpponentHealthUp" />
 
@@ -167,7 +186,8 @@
         android:layout_weight="1"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="200dp"
-        android:layout_below="@+id/imgBtnOpponentHealthDown" />
+        android:layout_below="@+id/imgBtnOpponentHealthDown"
+        android:layout_marginTop="20dp"/>
 
     <ImageButton
         android:layout_width="match_parent"
@@ -175,6 +195,8 @@
         app:srcCompat="@android:drawable/arrow_up_float"
         android:id="@+id/imgBtnOpponentDamageUp"
         android:layout_below="@+id/lblOpponentDamage"
+        android:background="#e15258"
+        android:padding="5dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp"
         android:layout_alignEnd="@+id/imgBtnOpponentHealthDown" />
@@ -184,12 +206,15 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/arrow_down_float"
         android:id="@+id/imgBtnOpponentDamageDown"
+        android:background="#51b46d"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/imgBtnOpponentDamageUp"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/imgBtnOpponentDamageUp" />
 
     <TextView
-        android:text="WinnerText"
+        android:text="@string/winnertext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtWinner"
@@ -198,5 +223,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:visibility="invisible" />
+
+    <Button
+        android:text="@string/new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="#51b46d"
+        android:layout_alignStart="@+id/txtDamage"
+        android:id="@+id/btnNewGame"
+        style="@style/Widget.AppCompat.Button"/>
 
 </RelativeLayout>

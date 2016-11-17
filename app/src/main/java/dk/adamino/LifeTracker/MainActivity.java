@@ -1,8 +1,10 @@
 package dk.adamino.LifeTracker;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton imgOpponentDamageDown;
 
     private TextView mWinnerText;
+    private Button btnNewGame;
+
     public static final String PLAYER_WINTEXT = "Yay you won!";
     public static final String OPPONENT_WINTEXT = "LOOSER!!!";
 
@@ -56,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         imgOpponentDamageDown = (ImageButton) findViewById(R.id.imgBtnOpponentDamageDown);
 
         mWinnerText = (TextView) findViewById(R.id.txtWinner);
+
+        btnNewGame = (Button) findViewById(R.id.btnNewGame);
+        btnNewGame.setVisibility(View.INVISIBLE);
 
         //Set buttons for player
         View.OnClickListener playerHealthUpListener = new View.OnClickListener() {
@@ -143,18 +150,34 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         imgOpponentDamageDown.setOnClickListener(OpponentDamageDownListener);
+
+        //Set new game button
+        View.OnClickListener newGameListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
+            }
+        };
+        btnNewGame.setOnClickListener(newGameListener);
     }
 
     /**
      * Checks if the game is won
      */
     private void checkGameOver() {
+        //If opponent wins
         if (mPlayerDamage >= mPlayerHealth || mPlayerHealth == 0) {
             mWinnerText.setText(OPPONENT_WINTEXT);
+            mWinnerText.setTextColor(Color.parseColor("#e15258"));
             mWinnerText.setVisibility(View.VISIBLE);
+            btnNewGame.setVisibility(View.VISIBLE);
+            //If we win
         } else if (mOpponentDamage >= mOpponentHealth || mOpponentHealth == 0) {
             mWinnerText.setText(PLAYER_WINTEXT);
+            mWinnerText.setTextColor(Color.parseColor("#51b46d"));
             mWinnerText.setVisibility(View.VISIBLE);
+            btnNewGame.setVisibility(View.VISIBLE);
         }
     }
 

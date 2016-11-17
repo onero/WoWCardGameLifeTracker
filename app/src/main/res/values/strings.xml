@@ -4,4 +4,6 @@
     <string name="healthString">25</string>
     <string name="damage">Damage</string>
     <string name="damageString">0</string>
+    <string name="new_game">New Game</string>
+    <string name="winnertext">WinnerText</string>
 </resources>
